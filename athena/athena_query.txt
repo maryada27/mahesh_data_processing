@@ -1,0 +1,8 @@
+SELECT observationdate, screentemperature, region 
+FROM "athena_created_parquet_data" at
+INNER JOIN (
+  Select max(screentemperature) max_temp
+  FROM "athena_created_parquet_data"
+  ) it
+ON at.screentemperature = it.max_temp
+

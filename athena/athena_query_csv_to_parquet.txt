@@ -1,0 +1,6 @@
+CREATE TABLE weather.athena_created_parquet_data
+    WITH (
+          format = 'PARQUET',
+          parquet_compression = 'SNAPPY',
+          external_location = 's3://{bucket name}/parquet-data/'
+    ) AS SELECT * FROM weather.csv_data
